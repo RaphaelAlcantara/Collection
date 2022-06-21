@@ -1,6 +1,8 @@
 package List;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ExemploList {
@@ -39,6 +41,16 @@ public class ExemploList {
 //        }
 
         System.out.println("Exiba a terceira nota adicionada");
+        //get retorna o elemento na posição
+        System.out.println("terceira nota: "+notas.get(2));
+
+        System.out.println("Exiba a menor nota");
+        //metodo min retorna o menor elemento da Collection
+        System.out.println("Menor nota: " + Collections.min(notas));
+
+        System.out.println("Exiba a maior nota");
+        //metodo max retorna o maior elemento da Collection
+        System.out.println("Maior nota: " + Collections.max(notas));
 
     }
 }
