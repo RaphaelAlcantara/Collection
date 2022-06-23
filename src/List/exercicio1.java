@@ -29,12 +29,12 @@ public class exercicio1 {
         double media = soma / temperaturas.size();
         System.out.println("Média: " + media);
 
-
-        System.out.println("Temperaturas acima da média: " + temperaturas);
+        System.out.println("Temperaturas acima da média:");
 
         for(int i = 0; i < temperaturas.size(); i++){
             if(temperaturas.get(i) > media){
-                System.out.println("Mês " + i + " - " + temperaturas.get(i));
+
+                System.out.println("Mês " + (i+1) + " - " + temperaturas.get(i));
             }
         }
 
