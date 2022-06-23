@@ -25,6 +25,7 @@ public class exercicio2 {
 
         List<Integer> respostas = new ArrayList<>();
 
+try {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Telefonou para a vítima?");
@@ -66,6 +67,11 @@ public class exercicio2 {
         } else {
             System.out.println("Inocente");
         }
+}
+catch (Exception e) {
+    System.out.println("ERRO! Insira um número referente a opção");
+}
+
 
     }
 
