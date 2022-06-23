@@ -2,6 +2,7 @@ package List;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /*
     Faça um programa que receba a temperatura média dos
@@ -14,13 +15,22 @@ import java.util.List;
 public class exercicio1 {
     public static void main(String[] args) {
         List<Double> temperaturas = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite as temperaturas dos 6 primeiros meses do ano:");
 
-        temperaturas.add(23.0);
-        temperaturas.add(26.5);
-        temperaturas.add(24.3);
-        temperaturas.add(26.4);
-        temperaturas.add(26.0);
-        temperaturas.add(26.6);
+        System.out.print("Digite a temperatura do primeiro mês: ");
+        temperaturas.add(scanner.nextDouble());
+        System.out.print("Digite a temperatura do segundo mês: ");
+        temperaturas.add(scanner.nextDouble());
+        System.out.print("Digite a temperatura do terceiro mês: ");
+        temperaturas.add(scanner.nextDouble());
+        System.out.print("Digite a temperatura do quarto mês: ");
+        temperaturas.add(scanner.nextDouble());
+        System.out.print("Digite a temperatura do quinto mês: ");
+        temperaturas.add(scanner.nextDouble());
+        System.out.print("Digite a temperatura do sexto mês: ");
+        temperaturas.add(scanner.nextDouble());
+
 
         double soma = 0;
         for (Double temperatura : temperaturas) {
@@ -37,7 +47,5 @@ public class exercicio1 {
                 System.out.println("Mês " + (i+1) + " - " + temperaturas.get(i));
             }
         }
-
-
     }
 }
