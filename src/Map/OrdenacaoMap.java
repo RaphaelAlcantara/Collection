@@ -1,6 +1,7 @@
 package Map;
 
 import java.util.*;
+import java.util.function.Function;
 
 public class OrdenacaoMap {
     public static void main(String[] args) {
@@ -29,19 +30,39 @@ public class OrdenacaoMap {
 
         System.out.println("\tImprima em ordem alfabética os autores\t");
         Map<String, Livro> meusLivros2 = new TreeMap<>(meusLivros1);
+
         for(Map.Entry<String, Livro> livro : meusLivros2.entrySet()){
             System.out.println(livro.getKey() + ": " + livro.getValue().getNome());
         }
 
         System.out.println("\tImprima em ordem alfabetica do nome do livro\t");
-        Set<Map.Entry<String, Livro>> meusLivros3 = new TreeSet<>(new ComparatorNome());
+        Set<Map.Entry<String, Livro>> meusLivros3 = new TreeSet<>(Comparator.comparing(l1 -> l1.getValue().getNome()));
+
         meusLivros3.addAll(meusLivros.entrySet());
         for(Map.Entry<String, Livro> livro : meusLivros3){
             System.out.println(livro.getKey() + ": " + livro.getValue().getNome());
         }
 
         System.out.println("\tImprima em ordem de paginas do livro\t");
-        Set<Map.Entry<String, Livro>> meusLivros4 = new TreeSet<>(new ComparatorPaginas());
+        //class anonima
+       /* Set<Map.Entry<String, Livro>> meusLivros4 = new TreeSet<>(new Comparator<Map.Entry<String, Livro>>() {
+            @Override
+            public int compare(Map.Entry<String, Livro> L1, Map.Entry<String, Livro> L2) {
+                return L1.getValue().getPaginas().compareTo(L2.getValue().getPaginas());
+            }
+        });*/
+
+        //Usando comparing
+       /* Set<Map.Entry<String, Livro>> meusLivros4 = new TreeSet<>(Comparator.comparing(new Function<Map.Entry<String, Livro>, Integer>() {
+            @Override
+            public Integer apply(Map.Entry<String, Livro> L1) {
+                return L1.getValue().getPaginas();
+            }
+        }));*/
+
+        //Apaga do new até o nome da variavel, depois do parentese da variavel até o return
+        //usando lambda
+        Set<Map.Entry<String, Livro>> meusLivros4 = new TreeSet<>(Comparator.comparing( L1 ->L1.getValue().getPaginas()));
         meusLivros4.addAll(meusLivros.entrySet());
         for(Map.Entry<String, Livro> livro : meusLivros4){
             System.out.println(livro.getKey() + ": " + livro.getValue().getNome() + " - " + livro.getValue().getPaginas());
@@ -96,10 +117,10 @@ class ComparatorNome implements Comparator<Map.Entry<String, Livro>>{
     }
 }
 
-class ComparatorPaginas implements Comparator<Map.Entry<String, Livro>>{
+/*class ComparatorPaginas implements Comparator<Map.Entry<String, Livro>>{
 
     @Override
     public int compare(Map.Entry<String, Livro> l1, Map.Entry<String, Livro> l2) {
         return l1.getValue().getPaginas().compareTo(l2.getValue().getPaginas());
     }
-}
+}*/
