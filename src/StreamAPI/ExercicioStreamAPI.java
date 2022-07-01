@@ -3,6 +3,7 @@ package StreamAPI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class ExercicioStreamAPI {
     public static void main(String[] args) {
@@ -16,6 +17,14 @@ public class ExercicioStreamAPI {
         numerosAleatorios.stream().forEach(s -> System.out.println(s));
         numerosAleatorios.forEach(System.out::println);
 */
+
+        System.out.println("Pegue os 5 primeiros numeros e coloque num Set");
+        //limit - limita o número de elementos que serão retornados
+        numerosAleatorios.stream().
+                limit(5).
+                collect(Collectors.toSet()) //Set não aceita repetição de elementos
+                .forEach(System.out::println);
+
 
 
     }
